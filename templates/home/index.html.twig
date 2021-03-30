@@ -9,12 +9,22 @@
       Anikura - your very own multimedia server
     </h3>
 
+    {% if not app.user %}
+      <a
+        class="btn btn-primary btn-lg my-4"
+        href="{{ path('app_login') }}"
+        role="button"
+      >
+        Log in to this instance
+      </a>
+    {% else %}
     <a
-      class="btn btn-primary btn-lg my-4"
-      href="{{ path('app_login') }}"
+      class="btn btn-secondary btn-lg my-4"
+      href="#"
       role="button"
     >
-      Log in to this instance
+      Go to dashboard
     </a>
+    {% endif %}
   </div>
 {% endblock %}
