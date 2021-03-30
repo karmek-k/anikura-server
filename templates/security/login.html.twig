@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style>
+  .login-form {
+    max-width: 540px;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+{#
+{% if error %}
+<div class="alert alert-danger">
+  {{ error.messageKey|trans(error.messageData, 'security') }}
+</div>
+{% endif %}
+
+{% if app.user %}
+<div class="mb-3">
+  You are logged in as {{ app.user.username }},
+  <a href="{{ path('app_logout') }}">Logout</a>
+</div>
+{% endif %}
+#}
+
+{# Uncomment this section and add a remember_me option below your firewall to
+activate remember me functionality. See
+https://symfony.com/doc/current/security/remember_me.html
+
+<div class="checkbox mb-3">
+  <label> <input type="checkbox" name="_remember_me" /> Remember me </label>
+</div>
+#}
+
+<div class="text-center login-form mx-auto">
+  <h1 class="m-4">Log in to Anikura</h1>
+  <form method="post">
+    {# CSRF token #}
+    <input
+      type="hidden"
+      name="_csrf_token"
+      value="{{ csrf_token('authenticate') }}"
+    />
+
+    <div class="my-3">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        name="username"
+        value="{{ last_username }}"
+        class="form-control"
+        required
+        autofocus
+      />
+    </div>
+
+    <div class="my-3">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        class="form-control"
+        required
+      />
+    </div>
+
+    {% if error %}
+      <div class="text-danger mb-3">{{ error.messageKey }}</div>
+    {% endif %}
+
+    <input type="submit" class="btn btn-primary" value="Log in" />
+  </form>
+</div>
+{% endblock %}
