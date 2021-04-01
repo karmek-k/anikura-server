@@ -24,6 +24,18 @@
         {% else %}
           <a
             class="nav-item nav-link"
+            href="{{ path('dashboard') }}"
+          >
+            Dashboard
+          </a>
+          <a
+            class="nav-item nav-link"
+            href="{{ path('dashboard_upload') }}"
+          >
+            Upload files
+          </a>
+          <a
+            class="nav-item nav-link"
             href="{{ path('app_logout') }}"
           >
             Log out

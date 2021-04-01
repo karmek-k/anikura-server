@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anikura Dashboard{% endblock %}
+
+{% block body %}
+  <div class="d-flex justify-content-between p-2">
+    <h1>Your uploads</h1>
+    <a
+      href="{{ path('dashboard_upload') }}"
+      class="btn btn-primary"
+      role="button"
+    >
+      Upload files
+    </a>
+  </div>
+
+  {% for label, messages in app.flashes(['info']) %}
+    {% for message in messages %}
+      <div class="alert alert-{{ label }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endfor %}
+
+  {% if userContent is empty %}
+    <div class="alert alert-secondary">
+      You haven't uploaded any content yet!
+    </div>
+  {% else %}
+  <ul>
+    {% for item in userContent %}
+      <li>{{ item.name }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endblock %}

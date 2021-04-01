@@ -2,7 +2,7 @@
 
 {% block body %}
   <div class="text-center">
-    <h1 class="mt-4" style="font-size: 5em;">
+    <h1 style="font-size: 5em;">
       {% include '_anikura-jpn.html.twig' %}
     </h1>
     <h3>
@@ -20,7 +20,7 @@
     {% else %}
     <a
       class="btn btn-secondary btn-lg my-4"
-      href="#"
+      href="{{ path('dashboard') }}"
       role="button"
     >
       Go to dashboard
