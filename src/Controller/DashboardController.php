@@ -35,6 +35,8 @@ class DashboardController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             dd($file);
+            $this->addFlash('info', 'The file has been successfully uploaded');
+            return $this->redirectToRoute('dashboard');
         }
 
         return $this->render('dashboard/upload.html.twig', [
