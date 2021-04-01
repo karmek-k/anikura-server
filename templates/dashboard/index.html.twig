@@ -3,7 +3,16 @@
 {% block title %}Anikura Dashboard{% endblock %}
 
 {% block body %}
-  <h1>Your uploads</h1>
+  <div class="d-flex justify-content-between p-2">
+    <h1>Your uploads</h1>
+    <a
+      href="{{ path('dashboard_upload') }}"
+      class="btn btn-primary"
+      role="button"
+    >
+      Upload files
+    </a>
+  </div>
 
   {% for label, messages in app.flashes(['info']) %}
     {% for message in messages %}
