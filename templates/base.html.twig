@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+      {{ encore_entry_link_tags('app') }}
     {% endblock %}
     
     {% block javascripts %}
-    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+      {{ encore_entry_script_tags('app') }}
     {% endblock %}
   </head>
   <body>
