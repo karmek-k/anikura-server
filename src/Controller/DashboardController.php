@@ -26,15 +26,21 @@ class DashboardController extends AbstractController
     #[Route('/dashboard/upload', name: 'dashboard_upload')]
     public function upload(Request $request): Response
     {
-        // /** @var User $user */
-        // $user = $this->getUser();
         $file = new Media();
 
         $form = $this->createForm(MediaType::class, $file);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            dd($file);
+            /** @var User $user */
+            $user = $this->getUser();
+            $file->setOwner($user);
+
+            $mg = $this->getDoctrine()->getManager();
+
+            $mg->persist($file);
+            $mg->flush();
+
             $this->addFlash('info', 'The file has been successfully uploaded');
             return $this->redirectToRoute('dashboard');
         }
