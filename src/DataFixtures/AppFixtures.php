@@ -21,6 +21,13 @@ class AppFixtures extends Fixture
         );
         $manager->persist($admin);
 
+        $user = new User();
+        $user->setUsername('user');
+        $user->setPassword(
+            $this->encoder->encodePassword($user, 'user')
+        );
+        $manager->persist($user);
+
         $manager->flush();
     }
 }
