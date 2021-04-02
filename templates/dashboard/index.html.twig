@@ -29,7 +29,11 @@
   {% else %}
   <ul>
     {% for item in userContent %}
-      <li>{{ item.originalName }}</li>
+      <li>
+        <a href="{{ path('media', { id: item.id }) }}">
+          {{ item.originalName }}
+        </a>
+      </li>
     {% endfor %}
   </ul>
   {% endif %}
