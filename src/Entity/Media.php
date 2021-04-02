@@ -48,6 +48,11 @@ class Media
      */
     private $owner;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $originalName;
+
     public function setFile(?File $file = null): void
     {
         $this->file = $file;
@@ -72,7 +77,7 @@ class Media
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -84,7 +89,7 @@ class Media
         return $this->size;
     }
 
-    public function setSize(int $size): self
+    public function setSize(?int $size): self
     {
         $this->size = $size;
 
@@ -106,5 +111,17 @@ class Media
     public function getUpdatedAt(): \DateTimeInterface
     {
         return $this->updatedAt;
+    }
+
+    public function getOriginalName(): ?string
+    {
+        return $this->originalName;
+    }
+
+    public function setOriginalName(string $originalName): self
+    {
+        $this->originalName = $originalName;
+
+        return $this;
     }
 }

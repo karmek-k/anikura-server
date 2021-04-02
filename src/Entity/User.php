@@ -42,6 +42,11 @@ class User implements UserInterface
      */
     private $media;
 
+    public function __toString()
+    {
+        return $this->username;
+    }
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
