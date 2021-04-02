@@ -19,7 +19,8 @@ class MediaCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id'),
-            TextField::new('name'),
+            TextField::new('originalName'),
+            TextField::new('name', 'Generated Name'),
             AssociationField::new('owner'),
         ];
     }
