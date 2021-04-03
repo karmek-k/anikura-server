@@ -30,7 +30,7 @@
   <ul>
     {% for item in userContent %}
       <li>
-        <a href="{{ path('media', { id: item.id }) }}">
+        <a href="{{ path('media_player', { id: item.id }) }}">
           {{ item.originalName }}
         </a>
       </li>

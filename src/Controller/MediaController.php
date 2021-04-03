@@ -22,7 +22,20 @@ class MediaController extends AbstractController
         return $downloadHandler->downloadObject(
             $media,
             field: 'file',
-            forceDownload: false
         );
+    }
+
+    #[Route('/media/player/{id}', name: 'media_player')]
+    public function player(Media $media): Response
+    {
+        $user = $this->getUser();
+
+        if (!$media->getOwner() !== $user) {
+            $this->createAccessDeniedException();
+        }
+
+        return $this->render('media/player.html.twig', [
+            'media' => $media,
+        ]);
     }
 }

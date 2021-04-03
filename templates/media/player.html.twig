@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anikura Player{% endblock %}
+
+{% block body %}
+  <video width="100%" controls>
+    <source src="{{ path('media', { 'id': media.id }) }}" />
+  </video>
+{% endblock %}
