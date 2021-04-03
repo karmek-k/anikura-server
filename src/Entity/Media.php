@@ -21,7 +21,12 @@ class Media
     private $id;
 
     /**
-     * @Vich\UploadableField(mapping="media", fileNameProperty="name", size="size")
+     * @Vich\UploadableField(
+     *   mapping="media",
+     *   fileNameProperty="name",
+     *   size="size",
+     *   mimeType="mimeType"
+     * )
      * @var File
      */
     private $file;
@@ -52,6 +57,11 @@ class Media
      * @ORM\Column(type="string", length=255)
      */
     private $originalName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $mimeType;
 
     public function setFile(?File $file = null): void
     {
@@ -121,6 +131,18 @@ class Media
     public function setOriginalName(string $originalName): self
     {
         $this->originalName = $originalName;
+
+        return $this;
+    }
+
+    public function getMimeType(): ?string
+    {
+        return $this->mimeType;
+    }
+
+    public function setMimeType(?string $mimeType): self
+    {
+        $this->mimeType = $mimeType;
 
         return $this;
     }
