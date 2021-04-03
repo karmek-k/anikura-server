@@ -21,9 +21,8 @@ class MediaType extends AbstractType
             ])
             ->add('file', VichFileType::class, [
                 'constraints' => new File(mimeTypes: [
-                    'video/x-matroska',
                     'video/mp4',
-                    'video/x-msvideo'
+                    'video/webm',
                 ]),
             ])
             ->add('submit', SubmitType::class);
