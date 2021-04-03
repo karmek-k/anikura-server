@@ -4,6 +4,10 @@
 
 {% block body %}
   <video width="100%" controls>
-    <source src="{{ path('media', { 'id': media.id }) }}" />
+    <source
+      src="{{ path('media', { 'id': media.id }) }}"
+      type="{{ media.mimeType }}"
+    />
+    Sorry, your browser doesn't support embedded videos.
   </video>
 {% endblock %}
