@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="d-flex justify-content-between">
+    <h2>{{ media.originalName }}</h2>
+
+    <div>
+      <a
+          href="{{ path('media', { id: media.id }) }}"
+          class="btn btn-primary"
+          role="button"
+        >
+          Download
+        </a>
+
+      {% if player_enabled %}
+        <a
+          href="{{ path('media_player', { id: media.id }) }}"
+          class="btn btn-secondary"
+          role="button"
+        >
+          Play video
+        </a>
+      {% else %}
+        <a
+          class="btn btn-secondary disabled"
+          role="button"
+        >
+          Can't play this format
+        </a>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

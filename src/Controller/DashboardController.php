@@ -49,4 +49,18 @@ class DashboardController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/dashboard/media/{id}', name: 'dashboard_media')]
+    public function media(Media $media)
+    {
+        $playerEnabled = in_array(
+            $media->getMimeType(),
+            ['video/mp4', 'video/webm']
+        );
+
+        return $this->render('dashboard/media.html.twig', [
+            'player_enabled' => $playerEnabled,
+            'media' => $media,
+        ]);
+    }
 }

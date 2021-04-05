@@ -7,7 +7,7 @@
     <h1>Your uploads</h1>
     <a
       href="{{ path('dashboard_upload') }}"
-      class="btn btn-primary"
+      class="btn btn-primary d-flex align-items-center"
       role="button"
     >
       Upload files
@@ -30,7 +30,7 @@
   <ul>
     {% for item in userContent %}
       <li>
-        <a href="{{ path('media_player', { id: item.id }) }}">
+        <a href="{{ path('dashboard_media', { id: item.id }) }}">
           {{ item.originalName }}
         </a>
       </li>
