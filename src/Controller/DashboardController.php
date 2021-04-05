@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Media;
 use App\Entity\User;
 use App\Form\MediaType;
+use App\Service\AccessChecker;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -51,8 +52,10 @@ class DashboardController extends AbstractController
     }
 
     #[Route('/dashboard/media/{id}', name: 'dashboard_media')]
-    public function media(Media $media)
+    public function media(Media $media, AccessChecker $checker)
     {
+        $checker->checkOwnership($media);
+
         $playerEnabled = in_array(
             $media->getMimeType(),
             ['video/mp4', 'video/webm']
