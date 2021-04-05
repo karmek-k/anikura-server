@@ -3,6 +3,7 @@
 {% block title %}Anikura Player{% endblock %}
 
 {% block body %}
+  <h1 class="text-center py-2">{{ media.originalName }}</h1>
   <video width="100%" controls>
     <source
       src="{{ path('media', { 'id': media.id }) }}"
