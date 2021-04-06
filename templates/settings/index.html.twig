@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anikura Settings{% endblock %}
+
+{% block body %}
+  <h1>Anikura Settings</h1>
+
+  <div class="alert alert-warning">
+    Only some of these settings pages have been implemented.
+  </div>
+
+  {% for label, messages in app.flashes(['success']) %}
+    {% for message in messages %}
+      <div
+        class="alert alert-{{ label }} alert-dismissible fade show"
+        role="alert"
+      >
+        {{ message }}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+    {% endfor %}
+  {% endfor %}
+
+  {% include '_settings_nav.html.twig' %}
+{% endblock %}

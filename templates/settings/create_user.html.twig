@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create a user{% endblock %}
+
+{% block body %}
+  <h1 class="text-center">Create a user</h1>
+  
+  <div class="mx-auto d-flex flex-column align-items-center">
+    {{ form_start(form) }}
+
+    <div class="alert alert-warning" role="alert">
+      Creating admin users is possible only by command line.
+    </div>
+    
+    <div class="mb-3">
+      <div class="form-label">{{ form_label(form.username) }}</div>
+      {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+      <div class="form-label">{{ form_label(form.password.first) }}</div>
+      {{ form_widget(form.password.first, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+      <div class="form-label">{{ form_label(form.password.second) }}</div>
+      {{ form_widget(form.password.second, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="text-danger">
+      {{ form_errors(form) }}
+    </div>
+
+    
+
+    <div class="mb-3">
+      {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+
+    {{ form_end(form) }}
+  </div>
+{% endblock %}
