@@ -2,15 +2,6 @@
 
 {% block title %}Log in{% endblock %}
 
-{% block stylesheets %}
-{{ parent() }}
-<style>
-  .login-form {
-    max-width: 540px;
-  }
-</style>
-{% endblock %}
-
 {% block body %}
 {#
 {% if error %}
@@ -36,7 +27,7 @@ https://symfony.com/doc/current/security/remember_me.html
 </div>
 #}
 
-<div class="text-center login-form mx-auto">
+<div class="text-center condensed mx-auto">
   <h1>Log in to Anikura</h1>
   <form method="post">
     {# CSRF token #}

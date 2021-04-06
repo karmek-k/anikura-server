@@ -3,5 +3,9 @@
 {% block title %}Anikura Upload{% endblock %}
 
 {% block body %}
-  {{ form(form) }}
+  <div class="condensed mx-auto d-flex flex-column align-items-center">
+    {{ form_start(form) }}
+
+    {{ form_end(form) }}
+  </div>
 {% endblock %}
