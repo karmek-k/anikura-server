@@ -39,6 +39,7 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Media::class, mappedBy="owner", orphanRemoval=true)
+     * @ORM\OrderBy({"id": "DESC"})
      */
     private $media;
 
