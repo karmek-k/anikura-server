@@ -1,0 +1,15 @@
+# directories
+node_modules/
+public/build/
+public/bundles/
+var/
+vendor/
+uploads/
+
+# files
+.dockerignore
+.gitignore
+.prettierrc
+Dockerfile
+LICENSE
+README.md
