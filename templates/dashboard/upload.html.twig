@@ -3,8 +3,31 @@
 {% block title %}Anikura Upload{% endblock %}
 
 {% block body %}
-  <div class="condensed mx-auto d-flex flex-column align-items-center">
+  <div class="mx-auto d-flex flex-column align-items-center">
     {{ form_start(form) }}
+    
+    <div class="mb-3">
+      <div class="form-label">{{ form_label(form.originalName) }}</div>
+      {{ form_widget(form.originalName, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+      <div class="form-label">{{ form_label(form.description) }}</div>
+      {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+      <div class="form-label">{{ form_label(form.file) }}</div>
+      {{ form_widget(form.file, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="text-danger">
+      {{ form_errors(form.file) }}
+    </div>
+
+    <div class="mb-3">
+      {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
 
     {{ form_end(form) }}
   </div>
