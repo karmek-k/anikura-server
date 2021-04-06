@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Media;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +18,12 @@ class MediaType extends AbstractType
     {
         $builder
             ->add('originalName', TextType::class, [
-                'label' => 'Name'
+                'label' => 'Name',
+            ])
+            ->add('description', TextareaType::class, [
+                'attr' => [
+                    'placeholder' => 'Markdown is supported',
+                ],
             ])
             ->add('file', VichFileType::class, [
                 'constraints' => new File(mimeTypes: [
