@@ -24,6 +24,7 @@ class MediaType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Markdown is supported',
                 ],
+                'required' => false,
             ])
             ->add('file', VichFileType::class, [
                 'constraints' => new File(mimeTypes: [
