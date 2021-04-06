@@ -86,4 +86,4 @@ php -S localhost:8000 -t public
 
 And that's it! Now you can use Anikura.
 
-**TODO: actually not - add admin user creation**
+**TODO: actually not (at least not in production) - add admin user creation**
