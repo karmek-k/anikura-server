@@ -34,4 +34,14 @@
       {% endif %}
     </div>
   </div>
+
+  <div class="card my-5">
+    <section class="card-body">
+      {% if media.description is not empty %}
+        {{ media.description|markdown_to_html|escape }}
+      {% else %}
+        <div class="alert alert-secondary mb-0">No description</div>
+      {% endif %}
+    </section>
+  </div>
 {% endblock %}

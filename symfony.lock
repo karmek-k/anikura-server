@@ -103,6 +103,9 @@
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
     },
+    "erusev/parsedown": {
+        "version": "1.7.4"
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
@@ -442,6 +445,9 @@
         "version": "v5.2.5"
     },
     "twig/extra-bundle": {
+        "version": "v3.3.0"
+    },
+    "twig/markdown-extra": {
         "version": "v3.3.0"
     },
     "twig/twig": {
