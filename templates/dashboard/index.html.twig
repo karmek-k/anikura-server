@@ -16,8 +16,17 @@
 
   {% for label, messages in app.flashes(['info']) %}
     {% for message in messages %}
-      <div class="alert alert-{{ label }}">
+      <div 
+        class="alert alert-{{ label }} alert-dismissible fade show"
+        role="alert"
+      >
         {{ message }}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
       </div>
     {% endfor %}
   {% endfor %}
