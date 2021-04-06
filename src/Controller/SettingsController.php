@@ -43,7 +43,7 @@ class SettingsController extends AbstractController
             $manager->persist($newUser);
             $manager->flush();
 
-            $this->addFlash('User successfully created!', 'success');
+            $this->addFlash('success', 'User successfully created!');
 
             return $this->redirectToRoute('settings');
         }
